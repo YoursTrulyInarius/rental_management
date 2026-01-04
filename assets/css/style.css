@@ -1,0 +1,320 @@
+:root {
+    --primary: #4f46e5;
+    --primary-hover: #4338ca;
+    --secondary-bg: #f8fafc;
+    --glass: rgba(255, 255, 255, 0.85);
+    --glass-border: rgba(255, 255, 255, 0.5);
+    --text-dark: #1e293b;
+    --text-muted: #64748b;
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: #f1f5f9;
+    min-height: 100vh;
+    color: var(--text-dark);
+}
+
+/* Landing Page Split Layout */
+.landing-wrapper {
+    display: flex;
+    min-height: 100vh;
+    background: #f8fafc;
+}
+
+.landing-left {
+    flex: 1.2;
+    background: linear-gradient(135deg, #4f46e5 0%, #312e81 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.landing-left::before {
+    content: '';
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    top: -200px;
+    left: -200px;
+    animation: float 15s infinite ease-in-out;
+}
+
+.landing-left::after {
+    content: '';
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+    border-radius: 50%;
+    bottom: -150px;
+    right: -150px;
+    animation: float 12s infinite ease-in-out reverse;
+}
+
+.landing-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: #f8fafc;
+    z-index: 10;
+    min-height: 100vh;
+    position: relative;
+}
+
+.auth-center-wrapper {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1.5rem;
+}
+
+.auth-box {
+    width: 100%;
+    max-width: 480px;
+    background: var(--glass);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 3rem;
+    border-radius: 2.5rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--glass-border);
+    transition: transform 0.3s ease;
+}
+
+.auth-box:hover {
+    transform: translateY(-5px);
+}
+
+.auth-header-mobile {
+    display: none;
+}
+
+.landing-footer {
+    padding: 1.5rem;
+    background: transparent;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    50% {
+        transform: translate(30px, -30px) scale(1.1);
+    }
+}
+
+.floating-card {
+    animation: floatCard 6s infinite ease-in-out;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    padding: 3rem;
+    border-radius: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes floatCard {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+/* Form Styles */
+.form-control {
+    padding: 0.75rem 1rem;
+    border-radius: 0.75rem;
+    border: 1px solid #e2e8f0;
+    background: #fdfdfd;
+}
+
+.form-control:focus {
+    box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
+    border-color: var(--primary);
+}
+
+.input-group-text {
+    border-radius: 0.75rem 0 0 0.75rem !important;
+}
+
+.btn-toggle-pass {
+    border-radius: 0 0.75rem 0.75rem 0 !important;
+    background: #fdfdfd;
+    border: 1px solid #e2e8f0;
+    border-left: none;
+    color: var(--text-muted);
+}
+
+.btn-toggle-pass:hover {
+    color: var(--primary);
+    background: #f8fafc;
+}
+
+/* Dashboard Styles */
+.dashboard-layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 280px;
+    background: white;
+    border-right: 1px solid #e2e8f0;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    z-index: 1100;
+    /* Higher than main content */
+    overflow: visible !important;
+    /* Allow dropdowns to overflow */
+}
+
+.main-content {
+    flex: 1;
+    padding: 2rem;
+    background: var(--secondary-bg);
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    color: #475569;
+    text-decoration: none !important;
+    border-radius: 0.5rem;
+    margin-bottom: 0.25rem;
+    transition: all 0.2s;
+    font-weight: 500;
+}
+
+.nav-link:hover {
+    background: #f1f5f9;
+    color: var(--primary);
+}
+
+.nav-link.active {
+    background: var(--primary);
+    color: white !important;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 991.98px) {
+    .landing-left {
+        display: none !important;
+    }
+
+    .landing-right {
+        padding: 0;
+        background: radial-gradient(circle at top right, #4f46e5 0%, #312e81 100%);
+    }
+
+    .auth-center-wrapper {
+        padding: 1rem;
+        min-height: auto;
+        /* Prevent forcing scroll */
+        flex: 1;
+        /* Take available space */
+        align-items: center;
+        /* Center vertically if possible, or flex-start */
+        justify-content: center;
+        padding-top: 1rem;
+        padding-bottom: 0;
+    }
+
+    .auth-box {
+        padding: 2rem 1.5rem;
+        border-radius: 1.5rem;
+        background: rgba(255, 255, 255, 0.95);
+        margin-bottom: 0.5rem;
+    }
+
+    .landing-footer {
+        border-top: 1px solid rgba(0, 0, 0, 0.05);
+        padding-top: 0.5rem;
+        margin-top: 0.5rem;
+    }
+
+    .landing-footer p {
+        font-size: 0.75rem;
+    }
+
+    /* Dashboard Mobile Styles */
+    /* Dashboard Mobile Styles */
+    .dashboard-layout {
+        flex-direction: column;
+    }
+
+    .main-content {
+        padding: 1rem;
+    }
+
+    /* Remove .sidebar overrides as it is d-none on mobile */
+
+    .stats-card h2 {
+        font-size: 1.5rem;
+    }
+
+    .card-header {
+        padding: 1rem;
+    }
+}
+
+.x-small {
+    font-size: 0.75rem;
+}
+
+/* Avatar Utilities */
+.avatar-sm {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50% !important;
+}
+
+.avatar-md {
+    width: 56px;
+    height: 56px;
+    min-width: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50% !important;
+}
+
+/* Stats Card Customization */
+.stats-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.stats-card:hover {
+    transform: translateY(-5px);
+}
+
+.sidebar .dropdown-menu {
+    z-index: 2000 !important;
+}
