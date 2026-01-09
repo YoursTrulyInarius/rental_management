@@ -24,7 +24,7 @@ body {
 
 .landing-left {
     flex: 1.2;
-    background: linear-gradient(135deg, #4f46e5 0%, #312e81 100%);
+    background: linear-gradient(135deg, #ff0088 0%, #ff0088 100%);
     display: flex;
     flex-direction: column;
     justify-content: center;

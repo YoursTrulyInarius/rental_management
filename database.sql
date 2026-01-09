@@ -1,6 +1,8 @@
 CREATE DATABASE IF NOT EXISTS alfresco_rental;
 USE alfresco_rental;
 
+DROP TABLE IF EXISTS users;
+
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(50) NOT NULL UNIQUE,
