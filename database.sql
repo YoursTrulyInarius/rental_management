@@ -1,5 +1,5 @@
-CREATE DATABASE IF NOT EXISTS alfresco_rental;
-USE alfresco_rental;
+CREATE DATABASE IF NOT EXISTS kingslayer_rental;
+USE kingslayer_rental;
 
 DROP TABLE IF EXISTS users;
 
